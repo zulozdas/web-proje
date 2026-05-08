@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zülal - Giriş Yap">
+  <title>Zülal | Giriş</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="login-page">
+    <div class="login-card">
+      <h2>Hoş Geldiniz</h2>
+      <p class="login-subtitle">Hesabınıza giriş yapın</p>
+
+      <form class="login-form" id="loginForm" action="php/logKontrol.php" method="POST" novalidate>
+        <label for="kullanici">Kullanıcı Adı</label>
+        <input type="text" id="kullanici" name="kullanici" placeholder="Kullanıcı adınız" required>
+        <span class="form-error" id="kullaniciError">Kullanıcı adı gereklidir.</span>
+
+        <label for="sifre">Şifre</label>
+        <input type="password" id="sifre" name="sifre" placeholder="Şifreniz" required>
+        <span class="form-error" id="sifreError">Şifre gereklidir.</span>
+
+        <button type="submit">Giriş Yap</button>
+      </form>
+
+      <p style="text-align:center; margin-top:1.5rem; font-size:0.85rem; color:#8a8a8a;">
+        <a href="index.html" style="color:#9c8574;">← Ana sayfaya dön</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/validation.js"></script>
+</body>
+</html>
