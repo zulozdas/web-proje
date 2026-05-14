@@ -1,1 +1,144 @@
-<cv class="html"></cv>
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zülal - İletişim">
+  <title>Zülal | İletişim</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <span class="nav-logo">Zülal Özdaş</span>
+      <button class="hamburger" id="hamburger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="hobilerim.html">İlgi Alanlarım</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="sehrım.html">Şehrim</a></li>
+        <li><a href="mirasimiz.html">Mirasımız</a></li>
+        <li><a href="ilham.html">İlham Panosu</a></li>
+        <li><a href="iletisim.html" class="active">İletişim</a></li>
+        <li><a href="login.html">Giriş</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="section" style="margin-top: 80px;">
+    <h2 class="section-title">İletişim</h2>
+    <div class="section-line"></div>
+
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <p>Benimle iletişime geçmek için aşağıdaki formu doldurabilirsiniz.</p>
+      </div>
+
+      <form action="php/form-islem.php" method="POST" id="contactForm" class="contact-form">
+        <!-- Ad & Soyad -->
+        <div class="form-row">
+          <div class="form-group" style="flex: 1;">
+            <label for="ad">Ad</label>
+            <input type="text" id="ad" name="ad" placeholder="Adınız">
+            <span id="adError" class="form-error">Lütfen sadece harf giriniz.</span>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="soyad">Soyad</label>
+            <input type="text" id="soyad" name="soyad" placeholder="Soyadınız">
+            <span id="soyadError" class="form-error">Lütfen sadece harf giriniz.</span>
+          </div>
+        </div>
+
+        <!-- E-posta & Telefon -->
+        <div class="form-row">
+          <div class="form-group" style="flex: 1.5;">
+            <label for="email">E-posta</label>
+            <input type="email" id="email" name="email" placeholder="E-posta adresiniz">
+            <span id="emailError" class="form-error">Geçerli bir e-posta giriniz (gmail, hotmail vb. uzantılı).</span>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="5xx xxx xxxx">
+            <span id="telefonError" class="form-error">Telefon 10 haneli olmalı ve 5 ile başlamalıdır.</span>
+          </div>
+        </div>
+
+        <!-- Cinsiyet -->
+        <div class="form-group">
+          <label>Cinsiyet</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="cinsiyet" value="Kadın"> Kadın
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="cinsiyet" value="Erkek"> Erkek
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="cinsiyet" value="Diğer"> Diğer
+            </label>
+          </div>
+          <span id="cinsiyetError" class="form-error">Lütfen cinsiyet seçiniz.</span>
+        </div>
+
+        <!-- Şehir & Üniversite -->
+        <div class="form-row">
+          <div class="form-group" style="flex: 1;">
+            <label for="sehir">Şehir</label>
+            <select id="sehir" name="sehir">
+              <option value="" disabled selected>Şehir Seçiniz</option>
+              <option value="Sakarya">Sakarya</option>
+              <option value="İstanbul">İstanbul</option>
+              <option value="Ankara">Ankara</option>
+              <option value="İzmir">İzmir</option>
+              <option value="Kocaeli">Kocaeli</option>
+              <option value="Diğer">Diğer</option>
+            </select>
+            <span id="sehirError" class="form-error">Lütfen bir şehir seçiniz.</span>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="universite">Üniversite</label>
+            <select id="universite" name="universite">
+              <option value="" disabled selected>Üniversite Seçiniz</option>
+              <option value="Sakarya Üniversitesi">Sakarya Üniversitesi</option>
+              <option value="İstanbul Teknik Üniversitesi">İTÜ</option>
+              <option value="Boğaziçi Üniversitesi">Boğaziçi</option>
+              <option value="Koç Üniversitesi">Koç Üniversitesi</option>
+              <option value="Diğer">Diğer</option>
+            </select>
+            <span id="universiteError" class="form-error">Lütfen bir üniversite seçiniz.</span>
+          </div>
+        </div>
+
+        <!-- Mesaj -->
+        <div class="form-group">
+          <label for="mesaj">Mesajınız</label>
+          <textarea id="mesaj" name="mesaj" placeholder="Mesajınızı buraya bırakabilirsiniz..."></textarea>
+          <span id="mesajError" class="form-error">Mesaj alanı boş bırakılamaz.</span>
+        </div>
+
+        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+          <button type="submit">Gönder</button>
+          <button type="reset" style="background: #e8e4df; color: #6b5b4e;">Temizle</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Zülal Özdaş. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/validation.js"></script>
+</body>
+
+</html>
