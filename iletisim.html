@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Zülal - İletişim">
   <title>Zülal | İletişim</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,121 +16,185 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <span class="nav-logo">Zülal Özdaş</span>
-      <button class="hamburger" id="hamburger" aria-label="Menü">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="hobilerim.html">İlgi Alanlarım</a></li>
-        <li><a href="cv.html">CV</a></li>
-        <li><a href="sehrım.html">Şehrim</a></li>
-        <li><a href="mirasimiz.html">Mirasımız</a></li>
-        <li><a href="ilham.html">İlham Panosu</a></li>
-        <li><a href="iletisim.html" class="active">İletişim</a></li>
-        <li><a href="login.html">Giriş</a></li>
-      </ul>
-    </div>
-  </nav>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <span class="nav-logo">ZÜLAL ÖZDAŞ</span>
+        <button class="hamburger" id="hamburger" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="hobilerim.html">İlgi Alanlarım</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="sehrım.html">Şehrim</a></li>
+          <li><a href="mirasimiz.html">Mirasımız</a></li>
+          <li><a href="iletisim.html" class="active">İletişim</a></li>
+          <li><a href="login.html">Giriş</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-  <div class="section" style="margin-top: 80px;">
+  <div style="height: 64px;"></div>
+
+  <main class="container py-5">
     <h2 class="section-title">İletişim</h2>
     <div class="section-line"></div>
 
-    <div class="contact-wrapper">
-      <div class="contact-info">
-        <p>Benimle iletişime geçmek için aşağıdaki formu doldurabilirsiniz.</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="contact-info text-center mb-4">
+          <p>Benimle iletişime geçmek için aşağıdaki formu doldurabilirsiniz.</p>
+        </div>
+
+        <div id="vue-app">
+          <form action="php/form-islem.php" method="POST" id="contactForm" class="contact-form shadow-sm p-4 bg-white rounded-4">
+            <!-- Ad & Soyad -->
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="ad" class="form-label">Ad</label>
+                <input type="text" id="ad" name="ad" class="form-control" placeholder="Adınız" v-model="form.ad">
+                <span id="adError" class="form-error text-danger small" :class="{ show: errors.ad }">Lütfen sadece harf giriniz.</span>
+              </div>
+              <div class="col-md-6">
+                <label for="soyad" class="form-label">Soyad</label>
+                <input type="text" id="soyad" name="soyad" class="form-control" placeholder="Soyadınız" v-model="form.soyad">
+                <span id="soyadError" class="form-error text-danger small" :class="{ show: errors.soyad }">Lütfen sadece harf giriniz.</span>
+              </div>
+            </div>
+
+            <!-- E-posta & Telefon -->
+            <div class="row mb-3">
+              <div class="col-md-7">
+                <label for="email" class="form-label">E-posta</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="E-posta adresiniz" v-model="form.email">
+                <span id="emailError" class="form-error text-danger small" :class="{ show: errors.email }">Geçerli bir e-posta giriniz.</span>
+              </div>
+              <div class="col-md-5">
+                <label for="telefon" class="form-label">Telefon</label>
+                <input type="tel" id="telefon" name="telefon" class="form-control" placeholder="5xx xxx xxxx" v-model="form.telefon">
+                <span id="telefonError" class="form-error text-danger small" :class="{ show: errors.telefon }">Telefon 10 haneli olmalı ve 5 ile başlamalıdır.</span>
+              </div>
+            </div>
+
+            <!-- Cinsiyet -->
+            <div class="mb-3">
+              <label class="form-label d-block">Cinsiyet</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cinsiyet" id="genderF" value="Kadın" v-model="form.cinsiyet">
+                <label class="form-check-label" for="genderF">Kadın</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cinsiyet" id="genderM" value="Erkek" v-model="form.cinsiyet">
+                <label class="form-check-label" for="genderM">Erkek</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cinsiyet" id="genderO" value="Diğer" v-model="form.cinsiyet">
+                <label class="form-check-label" for="genderO">Diğer</label>
+              </div>
+              <span id="cinsiyetError" class="form-error text-danger small d-block" :class="{ show: errors.cinsiyet }">Lütfen cinsiyet seçiniz.</span>
+            </div>
+
+            <!-- Şehir & Üniversite -->
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="sehir" class="form-label">Şehir</label>
+                <select id="sehir" name="sehir" class="form-select" v-model="form.sehir">
+                  <option value="" disabled selected>Şehir Seçiniz</option>
+                  <option value="Sakarya">Sakarya</option>
+                  <option value="İstanbul">İstanbul</option>
+                  <option value="Ankara">Ankara</option>
+                  <option value="İzmir">İzmir</option>
+                  <option value="Kocaeli">Kocaeli</option>
+                  <option value="Diğer">Diğer</option>
+                </select>
+                <span id="sehirError" class="form-error text-danger small" :class="{ show: errors.sehir }">Lütfen bir şehir seçiniz.</span>
+              </div>
+              <div class="col-md-6">
+                <label for="universite" class="form-label">Üniversite</label>
+                <select id="universite" name="universite" class="form-select" v-model="form.universite">
+                  <option value="" disabled selected>Üniversite Seçiniz</option>
+                  <option value="Sakarya Üniversitesi">Sakarya Üniversitesi</option>
+                  <option value="İstanbul Teknik Üniversitesi">İTÜ</option>
+                  <option value="Boğaziçi Üniversitesi">Boğaziçi</option>
+                  <option value="Koç Üniversitesi">Koç Üniversitesi</option>
+                  <option value="Diğer">Diğer</option>
+                </select>
+                <span id="universiteError" class="form-error text-danger small" :class="{ show: errors.universite }">Lütfen bir üniversite seçiniz.</span>
+              </div>
+            </div>
+
+            <!-- Mesaj -->
+            <div class="mb-3">
+              <label for="mesaj" class="form-label">Mesajınız</label>
+              <textarea id="mesaj" name="mesaj" class="form-control" rows="4" placeholder="Mesajınızı buraya bırakabilirsiniz..." v-model="form.mesaj"></textarea>
+              <span id="mesajError" class="form-error text-danger small" :class="{ show: errors.mesaj }">Mesaj alanı boş bırakılamaz.</span>
+            </div>
+
+            <!-- Koşul -->
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="kosul" name="kosul" v-model="form.kosul">
+              <label class="form-check-label" for="kosul">Kullanım koşullarını kabul ediyorum.</label>
+              <span id="kosulError" class="form-error text-danger small d-block" :class="{ show: errors.kosul }">Koşulları kabul etmelisiniz.</span>
+            </div>
+
+            <div class="d-grid gap-2 d-md-flex mt-4">
+              <button type="button" id="btn-native" class="btn btn-secondary flex-grow-1">Klasik JS ile gönder</button>
+              <button type="button" id="btn-vue" @click="validateVue" class="btn btn-dark flex-grow-1">Vue.js ile gönder</button>
+              <button type="reset" class="btn btn-outline-secondary">Temizle</button>
+            </div>
+          </form>
+        </div>
       </div>
+    </div>
+  </main>
 
-      <form action="php/form-islem.php" method="POST" id="contactForm" class="contact-form">
-        <!-- Ad & Soyad -->
-        <div class="form-row">
-          <div class="form-group" style="flex: 1;">
-            <label for="ad">Ad</label>
-            <input type="text" id="ad" name="ad" placeholder="Adınız">
-            <span id="adError" class="form-error">Lütfen sadece harf giriniz.</span>
-          </div>
-          <div class="form-group" style="flex: 1;">
-            <label for="soyad">Soyad</label>
-            <input type="text" id="soyad" name="soyad" placeholder="Soyadınız">
-            <span id="soyadError" class="form-error">Lütfen sadece harf giriniz.</span>
-          </div>
-        </div>
+      <!-- Vue.js implementation -->
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      <script>
+        const { createApp, reactive } = Vue;
+        createApp({
+          setup() {
+            const form = reactive({
+              ad: '', soyad: '', email: '', telefon: '',
+              cinsiyet: '', sehir: '', universite: '', mesaj: '', kosul: false
+            });
+            const errors = reactive({
+              ad: false, soyad: false, email: false, telefon: false,
+              cinsiyet: false, sehir: false, universite: false, mesaj: false, kosul: false
+            });
 
-        <!-- E-posta & Telefon -->
-        <div class="form-row">
-          <div class="form-group" style="flex: 1.5;">
-            <label for="email">E-posta</label>
-            <input type="email" id="email" name="email" placeholder="E-posta adresiniz">
-            <span id="emailError" class="form-error">Geçerli bir e-posta giriniz (gmail, hotmail vb. uzantılı).</span>
-          </div>
-          <div class="form-group" style="flex: 1;">
-            <label for="telefon">Telefon</label>
-            <input type="tel" id="telefon" name="telefon" placeholder="5xx xxx xxxx">
-            <span id="telefonError" class="form-error">Telefon 10 haneli olmalı ve 5 ile başlamalıdır.</span>
-          </div>
-        </div>
+            const validateVue = () => {
+              Object.keys(errors).forEach(k => errors[k] = false);
+              let valid = true;
 
-        <!-- Cinsiyet -->
-        <div class="form-group">
-          <label>Cinsiyet</label>
-          <div class="radio-group">
-            <label class="radio-option">
-              <input type="radio" name="cinsiyet" value="Kadın"> Kadın
-            </label>
-            <label class="radio-option">
-              <input type="radio" name="cinsiyet" value="Erkek"> Erkek
-            </label>
-            <label class="radio-option">
-              <input type="radio" name="cinsiyet" value="Diğer"> Diğer
-            </label>
-          </div>
-          <span id="cinsiyetError" class="form-error">Lütfen cinsiyet seçiniz.</span>
-        </div>
+              const nameRegex = /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/;
+              if (!form.ad.trim() || !nameRegex.test(form.ad)) { errors.ad = true; valid = false; }
+              if (!form.soyad.trim() || !nameRegex.test(form.soyad)) { errors.soyad = true; valid = false; }
+              
+              const emailRegex = /^[^\s@]+@(gmail\.com|hotmail\.com|outlook\.com|icloud\.com|yahoo\.com|windowslive\.com|sakarya\.edu\.tr|edu\.tr)$/;
+              if (!form.email.trim() || !emailRegex.test(form.email.toLowerCase())) { errors.email = true; valid = false; }
+              
+              const phoneValue = form.telefon.replace(/\s/g, '');
+              const phoneRegex = /^5[0-9]{9}$/;
+              if (!phoneValue || !phoneRegex.test(phoneValue)) { errors.telefon = true; valid = false; }
 
-        <!-- Şehir & Üniversite -->
-        <div class="form-row">
-          <div class="form-group" style="flex: 1;">
-            <label for="sehir">Şehir</label>
-            <select id="sehir" name="sehir">
-              <option value="" disabled selected>Şehir Seçiniz</option>
-              <option value="Sakarya">Sakarya</option>
-              <option value="İstanbul">İstanbul</option>
-              <option value="Ankara">Ankara</option>
-              <option value="İzmir">İzmir</option>
-              <option value="Kocaeli">Kocaeli</option>
-              <option value="Diğer">Diğer</option>
-            </select>
-            <span id="sehirError" class="form-error">Lütfen bir şehir seçiniz.</span>
-          </div>
-          <div class="form-group" style="flex: 1;">
-            <label for="universite">Üniversite</label>
-            <select id="universite" name="universite">
-              <option value="" disabled selected>Üniversite Seçiniz</option>
-              <option value="Sakarya Üniversitesi">Sakarya Üniversitesi</option>
-              <option value="İstanbul Teknik Üniversitesi">İTÜ</option>
-              <option value="Boğaziçi Üniversitesi">Boğaziçi</option>
-              <option value="Koç Üniversitesi">Koç Üniversitesi</option>
-              <option value="Diğer">Diğer</option>
-            </select>
-            <span id="universiteError" class="form-error">Lütfen bir üniversite seçiniz.</span>
-          </div>
-        </div>
+              if (!form.cinsiyet) { errors.cinsiyet = true; valid = false; }
+              if (!form.sehir) { errors.sehir = true; valid = false; }
+              if (!form.universite) { errors.universite = true; valid = false; }
+              if (!form.mesaj.trim()) { errors.mesaj = true; valid = false; }
+              if (!form.kosul) { errors.kosul = true; valid = false; }
 
-        <!-- Mesaj -->
-        <div class="form-group">
-          <label for="mesaj">Mesajınız</label>
-          <textarea id="mesaj" name="mesaj" placeholder="Mesajınızı buraya bırakabilirsiniz..."></textarea>
-          <span id="mesajError" class="form-error">Mesaj alanı boş bırakılamaz.</span>
-        </div>
+              if (valid) {
+                document.getElementById('contactForm').submit();
+              }
+            };
 
-        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-          <button type="submit">Gönder</button>
-          <button type="reset" style="background: #e8e4df; color: #6b5b4e;">Temizle</button>
-        </div>
-      </form>
+            return { form, errors, validateVue }
+          }
+        }).mount('#vue-app');
+      </script>
     </div>
   </div>
 
@@ -137,6 +203,7 @@
     <p>&copy; 2026 Zülal Özdaş. Tüm hakları saklıdır.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/validation.js"></script>
 </body>

@@ -5,17 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Zülal Özdaş - Özgeçmiş / CV">
-  <title>Zülal Özdaş | CV</title>
+  <title>Zülal | CV</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-  <!-- 1. HEADER KULLANIMI: Navigasyon menüsünü sarmalıyoruz -->
+  <!-- Navbar -->
   <header>
     <nav class="navbar">
       <div class="nav-container">
-        <a href="index.html" class="nav-logo">Zülal Özdaş</a>
+        <span class="nav-logo">ZÜLAL ÖZDAŞ</span>
         <button class="hamburger" id="hamburger" aria-label="Menü">
           <span></span><span></span><span></span>
         </button>
@@ -25,7 +29,6 @@
           <li><a href="cv.html" class="active">CV</a></li>
           <li><a href="sehrım.html">Şehrim</a></li>
           <li><a href="mirasimiz.html">Mirasımız</a></li>
-          <li><a href="ilham.html">İlham Panosu</a></li>
           <li><a href="iletisim.html">İletişim</a></li>
           <li><a href="login.html">Giriş</a></li>
         </ul>
@@ -36,23 +39,24 @@
   <div style="height: 64px;"></div>
 
   <!-- Ana içeriği sarmalamak için <main> veya <section> kullanabiliriz -->
-  <main class="section">
+  <main class="container py-5">
     <h1 class="section-title">Özgeçmişim</h1>
     <div class="section-line"></div>
 
-    <div class="cv-container">
+    <div class="cv-container mx-auto" style="max-width: 800px;">
 
       <!-- 2. SECTION KULLANIMI: Eğitim bölümü -->
       <section class="cv-section fade-in">
         <h3>🎓 Eğitim</h3>
-        
+
         <!-- 3. ARTICLE KULLANIMI: Her bir eğitim bilgisi bağımsız bir içeriktir -->
         <article class="cv-item">
           <h4>Bilgisayar Mühendisliği - Lisans</h4>
           <p class="cv-date">2025 - Devam Ediyor</p>
-          <p>Üniversite birinci sınıf öğrencisiyim. Yazılım ve teknoloji alanında kendimi geliştirmeye devam ediyorum.</p>
+          <p>Üniversite birinci sınıf öğrencisiyim. Yazılım ve teknoloji alanında kendimi geliştirmeye devam ediyorum.
+          </p>
         </article>
-        
+
         <article class="cv-item">
           <h4>Lise Eğitimi</h4>
           <p class="cv-date">2019 - 2023</p>
@@ -83,7 +87,7 @@
 
       <!-- SECTION KULLANIMI: İlgi Alanları bölümü (Kapanış etiketi hatası düzeltildi) -->
       <section class="cv-section fade-in">
-        <h3>🎯 İlgi Alanları</h3>
+        <h3> İlgi Alanları</h3>
         <div class="cv-skills">
           <span>🎹 Piyano</span>
           <span>🎵 Klasik Müzik</span>
@@ -103,6 +107,7 @@
     <p>&copy; 2026 Zülal Özdaş. Tüm hakları saklıdır.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 

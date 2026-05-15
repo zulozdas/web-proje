@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Zülal - Bilgisayar Mühendisliği Öğrencisi Kişisel Web Sitesi">
   <title>Zülal | Ana Sayfa</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,24 +16,25 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <span class="nav-logo">Zülal Özdaş</span>
-      <button class="hamburger" id="hamburger" aria-label="Menü">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active">Ana Sayfa</a></li>
-        <li><a href="hobilerim.html">İlgi Alanlarım</a></li>
-        <li><a href="cv.html">CV</a></li>
-        <li><a href="sehrım.html">Şehrim</a></li>
-        <li><a href="mirasimiz.html">Mirasımız</a></li>
-        <li><a href="ilham.html">İlham Panosu</a></li>
-        <li><a href="iletisim.html">İletişim</a></li>
-        <li><a href="login.html">Giriş</a></li>
-      </ul>
-    </div>
-  </nav>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <span class="nav-logo">ZÜLAL ÖZDAŞ</span>
+        <button class="hamburger" id="hamburger" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="active">Ana Sayfa</a></li>
+          <li><a href="hobilerim.html">İlgi Alanlarım</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="sehrım.html">Şehrim</a></li>
+          <li><a href="mirasimiz.html">Mirasımız</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="login.html">Giriş</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
   <!-- Kapak Fotoğrafı -->
   <div class="profile-cover">
@@ -68,17 +71,22 @@
       <p>Eğitimimin bu aşamasında temel mühendislik ve bilgisayar bilimi konularında kendimi geliştirmeye çalışıyorum.
         Bunun yanında, zaman zaman farklı alanlara yönelerek hangi konularda daha fazla ilerlemek istediğimi keşfetmeye
         çalışıyorum.</p>
-        <p>Piyano çalmayı, sanatla ilgilenmeyi, yeni şeyler öğrenmeyi, yeni yerler gezmeyi ve insanlarla sohbet etmeyi 
+      <p>Piyano çalmayı, sanatla ilgilenmeyi, yeni şeyler öğrenmeyi, yeni yerler gezmeyi ve insanlarla sohbet etmeyi 
         seviyorum. Özellikle boş zamanlarımda bunlara vakit ayırmak bana iyi hissettiriyor.</p>
     </div>
   </div>
 
+  <!-- Video Bölümü -->
+  <div class="video-section" style="text-align: center; margin: 40px 20px;">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dhHDpaHz-4I?si=YAnIXee09piLfCtM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"></iframe>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2026 Zülal Özdaş. Tüm hakları saklıdır.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 

@@ -5,90 +5,117 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zülal | İlgi Alanlarım</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-  <nav class="navbar">
-    <div class="nav-container">
-      <span class="nav-logo">Zülal Özdaş</span>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <span class="nav-logo">ZÜLAL ÖZDAŞ</span>
 
-      <button class="hamburger" id="hamburger" aria-label="Menü">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <button class="hamburger" id="hamburger" aria-label="Menü">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="hobilerim.html" class="active">İlgi Alanlarım</a></li>
-        <li><a href="cv.html">CV</a></li>
-        <li><a href="sehrim.html">Şehrim</a></li>
-        <li><a href="mirasimiz.html">Mirasımız</a></li>
-        <li><a href="ilham.html">İlham Panosu</a></li>
-        <li><a href="iletisim.html">İletişim</a></li>
-        <li><a href="login.html">Giriş</a></li>
-      </ul>
-    </div>
-  </nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="hobilerim.html" class="active">İlgi Alanlarım</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="sehrım.html">Şehrim</a></li>
+          <li><a href="mirasimiz.html">Mirasımız</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="login.html">Giriş</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-  <div style="height: 100px;"></div>
+  <div style="height: 64px;"></div>
 
-  <main>
-    <section class="my-hobbies-section" style="max-width: 900px; margin: 0 auto; padding: 20px; font-family: sans-serif; line-height: 1.6; color: #444;">
-      <h1 style="text-align: center; color: #222; font-size: 32px; margin-bottom: 40px;">İlgi Alanlarım</h1>
+  <main class="container py-5">
+    <h1 class="section-title">İlgi Alanlarım</h1>
+    <div class="section-line"></div>
+
+    <div class="cv-container mx-auto" style="max-width: 800px;">
       
-      <article class="hobby-item" style="margin-bottom: 35px;">
-        <h2 style="color: #222; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 24px;">🎨 Sanat ve Çizim</h2>
-        <p style="font-size: 16px; margin-top: 10px;">
-          Boş zamanlarımda çizim yapmak ve boyalarla uğraşmak benim için bir tür dinlenme yöntemi. Renklerin uyumunu keşfetmek ve yeni kompozisyonlar üretmek zihnimi çok rahatlatıyor. Yazılım ile bu tutkumu birleştirip, çizim odaklı algoritmalar üzerine düşünmekten büyük keyif alıyorum. Aşağıda yer alan sanat galerisi de bu ilgimin ufak bir yansıması.
-        </p>
-      </article>
+      <section class="cv-section fade-in">
+        <h3>𝄢 Piyano</h3>
+        <article class="cv-item">
+          <p>Mendelssohn'dan Chopin'e, klasik müzik dinlemeyi ve piyano çalmayı seviyorum.</p>
+        </article>
+      </section>
 
-      <article class="hobby-item" style="margin-bottom: 35px;">
-        <h2 style="color: #222; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 24px;">💻 Kodlama ve Proje Geliştirme</h2>
-        <p style="font-size: 16px; margin-top: 10px;">
-          Yazılım benim için sadece bir alan değil, üretkenliğimi ortaya koyduğum en büyük tutkum. Mantık tabanlı uygulamalar tasarlamak veya modern web teknolojilerini kullanarak arayüzler inşa etmek bana büyük keyif veriyor. Bir projeyi sıfırdan ayağa kaldırmak en büyük motivasyon kaynağım.
-        </p>
-      </article>
+      <section class="cv-section fade-in">
+        <h3>𓂃🖌 Sanat Tarihi</h3>
+        <article class="cv-item">
+          <p>Sanatın içinde olmayı seviyorum; eserlerin ve dönemlerin hikâyelerini incelemekten keyif alıyorum.</p>
+        </article>
+      </section>
 
-      <article class="hobby-item" style="margin-bottom: 35px;">
-        <h2 style="color: #222; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 24px;">🌍 Yabancı Dil Pratiği</h2>
-        <p style="font-size: 16px; margin-top: 10px;">
-          Kendimi geliştirmek ve dünyayı daha geniş bir perspektiften takip edebilmek için aktif olarak İngilizce çalışıyorum. Yeni kelimeler öğrenmek ve dilin yapısını kavramak günlük rutinimin sevdiğim bir parçası. Bu süreci kendime kattığım yeni bir iletişim aracı olarak görüyorum.
-        </p>
-      </article>
+      <section class="cv-section fade-in">
+        <h3>⛱ Deniz & Kumsal</h3>
+        <article class="cv-item">
+          <p>Deniz kıyısında vakit geçirmek, dalgaları izlemek bana her zaman huzur veriyor.</p>
+        </article>
+      </section>
 
-      <article class="hobby-item" style="margin-bottom: 50px;">
-        <h2 style="color: #222; border-bottom: 2px solid #eee; padding-bottom: 10px; font-size: 24px;">📚 Kitap Okumak</h2>
-        <p style="font-size: 16px; margin-top: 10px;">
-          Yoğun bir günün ardından zihnimi boşaltmak için kitapların dünyasına sığınıyorum. Farklı kurguların içine dalmak ve odaklanma becerimi tazelemek bana her zaman çok iyi hissettiriyor.
-        </p>
-      </article>
-    </section>
+      <section class="cv-section fade-in">
+        <h3>🎧 Spor & Yürüyüş</h3>
+        <article class="cv-item">
+          <p>Günün stresini açık havada uzun yürüyüşler yaparak atıyorum.</p>
+        </article>
+      </section>
 
-    <section class="hobbies-section" style="max-width: 1000px; margin: 0 auto; padding: 40px 20px; text-align: center; border-top: 1px solid #f0f0f0;">
+      <section class="cv-section fade-in">
+        <h3>♕ Satranç</h3>
+        <article class="cv-item">
+          <p>Satranç ilgi alanlarım arasında, kendimi bu alanda geliştirmek istiyorum.</p>
+        </article>
+      </section>
+
+      <section class="cv-section fade-in">
+        <h3>☕︎ Okumak & Araştırmak</h3>
+        <article class="cv-item">
+          <p>Merak ettiğim konuları derinlemesine araştırmayı ve tüm detaylarıyla öğrenmeyi seviyorum.</p>
+        </article>
+      </section>
+
+    </div>
+
+    <section class="hobbies-section"
+      style="max-width: 1000px; margin: 0 auto; padding: 40px 20px; text-align: center; border-top: 1px solid #f0f0f0;">
       <h1 style="font-size: 28px; color: #222; margin-bottom: 10px;">Claude Monet Seçkisi</h1>
       <div style="width: 60px; height: 3px; background-color: #7da13a; margin: 0 auto 20px auto;"></div>
 
       <p style="color: #666; margin-bottom: 30px; font-style: italic;">
-        Empresyonizm akımının öncüsü Claude Monet'nin büyüleyici eserlerinden bir seçki.<br>
+        Empresyonizm akımının öncüsü Claude Monet'nin bazı eserleri.<br>
         <span style="font-size: 12px;">Cleveland Sanat Müzesi API üzerinden dinamik olarak sunulmaktadır.</span>
       </p>
 
-      <div id="art-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left;">
+      <div id="art-gallery"
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left;">
         <p style="text-align: center; width: 100%; color: #999;">Sanat galerisi hazırlanıyor...</p>
       </div>
     </section>
   </main>
 
-  <footer class="footer" style="text-align: center; padding: 30px 20px; background-color: #f9f9f9; border-top: 1px solid #eaeaea; color: #777; font-size: 14px;">
+  <footer class="footer"
+    style="text-align: center; padding: 30px 20px; background-color: #f9f9f9; border-top: 1px solid #eaeaea; color: #777; font-size: 14px;">
     <p>&copy; 2026 Zülal Özdaş. Tüm hakları saklıdır.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/gallery.js"></script>
 
 </body>
+
 </html>

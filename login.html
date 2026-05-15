@@ -5,33 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Zülal - Giriş Yap">
   <title>Zülal | Giriş</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <div class="login-page">
-    <div class="login-card">
-      <h2>Hoş Geldiniz</h2>
-      <p class="login-subtitle">Hesabınıza giriş yapın</p>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <span class="nav-logo">ZÜLAL ÖZDAŞ</span>
+        <button class="hamburger" id="hamburger" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="hobilerim.html">İlgi Alanlarım</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="sehrım.html">Şehrim</a></li>
+          <li><a href="mirasimiz.html">Mirasımız</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="login.html" class="active">Giriş</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div style="height: 64px;"></div>
+
+  <main class="login-page d-flex align-items-center justify-content-center">
+    <div class="login-card shadow p-4 bg-white rounded-4" style="max-width: 400px; width: 100%;">
+      <h2 class="text-center mb-1">Hoş Geldiniz</h2>
+      <p class="login-subtitle text-center text-muted mb-4">Hesabınıza giriş yapın</p>
+
+      <!-- Hata Mesajı -->
+      <div id="loginErrorMsg" class="alert alert-danger text-center small mb-3" style="display: none;">
+        Hatalı kullanıcı adı veya şifre! Lütfen tekrar deneyin.
+      </div>
 
       <form class="login-form" id="loginForm" action="php/logKontrol.php" method="POST" novalidate>
-        <label for="kullanici">Kullanıcı Adı</label>
-        <input type="text" id="kullanici" name="kullanici" placeholder="Kullanıcı adınız" required>
-        <span class="form-error" id="kullaniciError">Kullanıcı adı gereklidir.</span>
+        <div class="mb-3">
+          <label for="kullanici" class="form-label small fw-bold">E-posta (Kullanıcı Adı)</label>
+          <input type="email" id="kullanici" name="kullanici" class="form-control" placeholder="b251210034@sakarya.edu.tr" required>
+          <span class="form-error text-danger small" id="kullaniciError">Lütfen geçerli bir öğrenci e-postası giriniz.</span>
+        </div>
 
-        <label for="sifre">Şifre</label>
-        <input type="password" id="sifre" name="sifre" placeholder="Şifreniz" required>
-        <span class="form-error" id="sifreError">Şifre gereklidir.</span>
+        <div class="mb-4">
+          <label for="sifre" class="form-label small fw-bold">Şifre (Öğrenci Numaranız)</label>
+          <input type="password" id="sifre" name="sifre" class="form-control" placeholder="Öğrenci numaranız" required>
+          <span class="form-error text-danger small" id="sifreError">Şifre (Öğrenci numarası) gereklidir.</span>
+        </div>
 
-        <button type="submit">Giriş Yap</button>
+        <button type="submit" class="btn btn-dark w-100 py-2">Giriş Yap</button>
       </form>
 
-      <p style="text-align:center; margin-top:1.5rem; font-size:0.85rem; color:#8a8a8a;">
-        <a href="index.html" style="color:#9c8574;">← Ana sayfaya dön</a>
-      </p>
+      <div class="text-center mt-4">
+        <a href="index.html" class="text-decoration-none small text-muted">← Ana sayfaya dön</a>
+      </div>
     </div>
-  </div>
+  </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
   <script src="js/validation.js"></script>
+  <script>
+    // URL'de hata parametresi varsa mesajı göster
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('error')) {
+      document.getElementById('loginErrorMsg').style.display = 'block';
+    }
+  </script>
 </body>
 </html>

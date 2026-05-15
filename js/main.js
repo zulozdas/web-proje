@@ -114,4 +114,109 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('NASA APOD hatası:', error);
     }
   }
+
+  // ===== Şehrim Slider =====
+  var citySlider = document.getElementById('citySlider');
+  if (citySlider) {
+    initCitySlider();
+  }
+
+  function initCitySlider() {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('sliderPrev');
+    const nextBtn = document.getElementById('sliderNext');
+    let currentSlide = 0;
+    let autoPlayInterval;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function goToSlide(index) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+
+    // Otomatik geçiş
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoPlay() {
+      clearInterval(autoPlayInterval);
+    }
+
+    // Buton olayları
+    nextBtn.addEventListener('click', function () {
+      stopAutoPlay();
+      nextSlide();
+      startAutoPlay();
+    });
+
+    prevBtn.addEventListener('click', function () {
+      stopAutoPlay();
+      prevSlide();
+      startAutoPlay();
+    });
+
+    // Nokta tıklamaları
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        stopAutoPlay();
+        goToSlide(parseInt(this.dataset.index));
+        startAutoPlay();
+      });
+    });
+
+    // Klavye desteği
+    document.addEventListener('keydown', function (e) {
+      if (!citySlider) return;
+      if (e.key === 'ArrowLeft') {
+        stopAutoPlay();
+        prevSlide();
+        startAutoPlay();
+      } else if (e.key === 'ArrowRight') {
+        stopAutoPlay();
+        nextSlide();
+        startAutoPlay();
+      }
+    });
+
+    // Dokunmatik (swipe) desteği
+    citySlider.addEventListener('touchstart', function (e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    citySlider.addEventListener('touchend', function (e) {
+      touchEndX = e.changedTouches[0].screenX;
+      var diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        stopAutoPlay();
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+        startAutoPlay();
+      }
+    });
+
+    // Hover'da durdur
+    citySlider.addEventListener('mouseenter', stopAutoPlay);
+    citySlider.addEventListener('mouseleave', startAutoPlay);
+
+    // Başlat
+    startAutoPlay();
+  }
 });
+
